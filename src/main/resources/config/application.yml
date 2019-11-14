@@ -1,0 +1,24 @@
+server:
+  context-path: /generator
+  tomcat:
+    max-threads: 50
+    max-connections: 300
+  ##启动端口
+  port: 9999
+spring:
+  profiles:
+    active:
+    ##配置采用哪个后缀的配置文件
+    - dev
+      
+      
+##mybatis扫描文件
+mybatis:
+  mapper-locations:
+  - classpath:mapper/**/*.xml
+
+pagehelper: 
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql 
