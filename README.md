@@ -1,4 +1,6 @@
 ### 
+截取ruoyi框架部分功能实现
+
 基于mybatis，pageHelper
 
 生成
