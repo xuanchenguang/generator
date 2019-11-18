@@ -18,7 +18,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <include refid="select${className}Vo"/>
         <where>  
 #foreach($column in $columns)
-            <if test="$column.attrname != null #if($column.attrType == 'String' ) and $column.attrname.trim() != '' #end"> and $column.columnName = #{$column.attrname}</if>
+    <if test="$column.attrname != null #if($column.attrType == 'String' ) and $column.attrname.trim() != '' #end"> and $column.columnName = #{$column.attrname}</if>
+    #if($column.attrType == 'Date')
+    	<if test="start$column.attrName != null "> $column.columnName &gt;= #{start$column.attrName}</if>
+        <if test="end$column.attrName != null "> $column.columnName &lt;= #{end$column.attrName}</if>
+    #end 
  #end
         </where>
     </select>
