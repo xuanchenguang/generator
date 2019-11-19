@@ -9,8 +9,7 @@ import java.util.List;
  * @author ${author}
  * @date ${datetime}
  */
-public interface I${className}Service 
-{
+public interface I${className}Service {
 	/**
      * 查询${tableComment}信息
      * 

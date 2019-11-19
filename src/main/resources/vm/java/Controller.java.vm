@@ -19,8 +19,7 @@ import com.ahzx.core.domain.AjaxResult;
  */
 @Controller
 @RequestMapping("/${classname}")
-public class ${className}Controller  extends BaseController
-{
+public class ${className}Controller  extends BaseController {
 	
 	@Autowired
 	private I${className}Service ${classname}Service;
@@ -31,8 +30,7 @@ public class ${className}Controller  extends BaseController
 	 */
 	@PostMapping("/list")
 	@ResponseBody
-	public TableDataInfo list(${className} ${classname})
-	{
+	public TableDataInfo list(${className} ${classname}) {
 		startPage();
         List<${className}> list = ${classname}Service.select${className}List(${classname});
 		return getDataTable(list);
@@ -43,8 +41,7 @@ public class ${className}Controller  extends BaseController
 	 */
 	@PostMapping("/add")
 	@ResponseBody
-	public AjaxResult addSave(${className} ${classname})
-	{		
+	public AjaxResult addSave(${className} ${classname}) {		
 		return toAjax(${classname}Service.insert${className}(${classname}));
 	}
 
@@ -53,8 +50,7 @@ public class ${className}Controller  extends BaseController
 	 */
 	@PostMapping("/edit")
 	@ResponseBody
-	public AjaxResult editSave(${className} ${classname})
-	{		
+	public AjaxResult editSave(${className} ${classname}) {		
 		return toAjax(${classname}Service.update${className}(${classname}));
 	}
 	
@@ -63,8 +59,7 @@ public class ${className}Controller  extends BaseController
 	 */
 	@PostMapping( "/remove")
 	@ResponseBody
-	public AjaxResult remove(String ids)
-	{		
+	public AjaxResult remove(String ids) {		
 		return toAjax(${classname}Service.delete${className}ByIds(ids));
 	}
 	

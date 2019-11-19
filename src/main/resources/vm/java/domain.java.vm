@@ -29,15 +29,14 @@ import lombok.ToString;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ${className} 
-{
+public class ${className}  {
 	
 #foreach ($column in $columns)
 	/** $column.columnComment */
 	private $column.attrType $column.attrname;
 #if($column.attrType == 'Date')
-	private transient end${column.attrName};
-	private transient start${column.attrName};
+	private transient Date end${column.attrName};
+	private transient Date start${column.attrName};
 #end
 #end
 
