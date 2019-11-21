@@ -3,7 +3,14 @@
 
 基于mybatis，pageHelper
 
-生成
+### 数据库
+1、必须添加备注说明，否则会出现nullpoint
+2、暂时只支持Mysql数据库
+
+### 测试
+1、参照test包下的 CreateManager 类
+
+### 生成
 1、controller
 2、service
 3、mapper（接口）
