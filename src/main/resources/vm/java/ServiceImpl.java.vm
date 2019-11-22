@@ -53,6 +53,16 @@ public class ${className}ServiceImpl implements I${className}Service {
 	}
 	
 	/**
+     * 批量新增${tableComment}
+     * 
+     * @param ${classname} ${tableComment}信息
+     * @return 结果
+     */
+	public int insert${className}ByBatch(List<${className}> ${classname}s){
+		return ${classname}Mapper.insert${className}ByBatch(${classname}s);
+	}
+	
+	/**
      * 修改${tableComment}
      * 
      * @param ${classname} ${tableComment}信息

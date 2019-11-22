@@ -44,6 +44,15 @@ public class ${className}Controller  extends BaseController {
 	public AjaxResult addSave(${className} ${classname}) {		
 		return toAjax(${classname}Service.insert${className}(${classname}));
 	}
+	
+	/**
+	 * 批量新增保存${tableComment}
+	 */
+	@PostMapping("/addByBatch")
+	@ResponseBody
+	public AjaxResult addSaveByBatch(List<${className}> ${classname}s) {		
+		return toAjax(${classname}Service.insert${className}ByBatch(${classname}s));
+	}
 
 	/**
 	 * 修改保存${tableComment}

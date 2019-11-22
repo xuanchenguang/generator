@@ -10,6 +10,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 #end
     </resultMap>
 	
+	<sql id="columnList">
+        #foreach($column in $columns) $column.columnName#if($velocityCount != $columns.size()),#end#end 
+    </sql>
+	
 	<sql id="select${className}Vo">
         select#foreach($column in $columns) $column.columnName#if($velocityCount != $columns.size()),#end#end from ${tableName}
     </sql>
@@ -49,6 +53,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 #end
          </trim>
     </insert>
+	 
+	<insert id="insert${className}ByBatch" parameterType="java.util.List">
+        insert into  ${tableName} 
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+#foreach($column in $columns)
+#if($column.columnName != $primaryKey.columnName || $primaryKey.extra != 'auto_increment')
+		$column.columnName,
+#end
+#end
+         </trim>
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+        	<trim prefix="(" suffix=")" suffixOverrides=",">
+#foreach($column in $columns)
+#if($column.columnName != $primaryKey.columnName || $primaryKey.extra != 'auto_increment')
+		#{item.$column.attrname},
+#end			
+#end
+         </trim>
+        </foreach>
+    </insert> 
+	 
 	 
     <update id="update${className}" parameterType="${package}.domain.${className}">
         update ${tableName}

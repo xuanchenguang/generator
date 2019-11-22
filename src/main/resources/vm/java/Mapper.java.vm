@@ -36,6 +36,14 @@ public interface ${className}Mapper  {
 	public int insert${className}(${className} ${classname});
 	
 	/**
+     * 批量新增${tableComment}
+     * 
+     * @param ${classname} ${tableComment}信息
+     * @return 结果
+     */
+	public int insert${className}ByBatch(List<${className}> ${classname}s);
+	
+	/**
      * 修改${tableComment}
      * 
      * @param ${classname} ${tableComment}信息
